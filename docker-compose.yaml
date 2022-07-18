@@ -3,7 +3,7 @@ version: "3.5"
 services:
   app:
     build: .
-    container_name: app_grpc_sample
+    container_name: app_grpc_calculator
     volumes:
       - .:/go/src/
     ports:
