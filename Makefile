@@ -25,7 +25,7 @@ else
 	else ifeq ($(UNAME),Linux)
 		OS = linux ${VERSION_AND_ARCH}
 	else
-    $(error OS not supported by this Makefile)
+		$(error OS not supported by this Makefile)
 	endif
 	PACKAGE = $(shell head -1 go.mod | awk '{print $$2}')
 	CHECK_DIR_CMD = test -d $@ || (echo "\033[31mDirectory $@ doesn't exist\033[0m" && false)
@@ -67,11 +67,14 @@ clean_greet: ## Clean generated files for greet
 
 clean_calculator: ## Clean generated files for calculator
 	${RM_F_CMD} calculator/${PROTO_DIR}/*.pb.go
-	
+
 clean_blog: ## Clean generated files for blog
 	${RM_F_CMD} blog/${PROTO_DIR}/*.pb.go
 
 rebuild: clean all ## Rebuild the whole project
+
+bump: all ## Update packages version
+	go get -u ./...
 
 about: ## Display info related to the build
 	@echo "OS: ${OS}"
