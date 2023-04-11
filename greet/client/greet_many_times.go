@@ -11,7 +11,7 @@ import (
 func doGreetManyTimes(c pb.GreetServiceClient) {
 	log.Println("doGreetManyTimes was invoked")
 
-	req := &pb.GreetRequest{FirstName: "Renato"}
+	req := &pb.GreetRequest{FirstName: "Juca"}
 
 	stream, err := c.GreetManyTimes(context.Background(), req)
 	if err != nil {
