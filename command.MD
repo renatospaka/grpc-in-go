@@ -11,3 +11,8 @@ protoc -I<PATH PROTO FILE> --go_out=<PATH TO COMPILED FILES> --go-grpc_out=<PATH
 make greet // creates pb files for greet folder
 make clean_greet // delete pb files from greet folder
 make help
+
+# generate sshl keys
+cd ./ssl
+chmod +x ssl.sh
+./ssl.sh
